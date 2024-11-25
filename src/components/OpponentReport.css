@@ -1,0 +1,85 @@
+/* OpponentReport.css */
+.opponent-report {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 90%; /* Adjust width to reduce white space */
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem; /* Ensure the heading stands out */
+    color: #333; /* Dark text for better visibility */
+  }
+  
+  .team-stats-section {
+    margin-bottom: 30px;
+  }
+  
+  .scrollable-table {
+    max-height: 400px; /* Ensure scrolling for large tables */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+  }
+  
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .comparison-table th {
+    background-color: #f45c43;
+    color: white;
+  }
+  
+  .comparison-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .comparison-table tbody tr:hover {
+    background-color: #fce9e9;
+  }
+  
+  .charts-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .chart-container {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin: 10px 0 20px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #f45c43;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #d94a3a;
+  }

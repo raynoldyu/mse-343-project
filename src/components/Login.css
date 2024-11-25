@@ -1,0 +1,122 @@
+/* Common Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-card {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Input Styling */
+input {
+  width: calc(100% - 20px); /* Ensures alignment inside the card */
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  display: block;
+  box-sizing: border-box; /* Includes padding in width */
+}
+
+/* Button Styling */
+button {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer Styling */
+.login-footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+/* Light Theme */
+.light {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.light .login-card {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Dark Theme */
+.dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+.dark .login-card {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.dark input {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dark button {
+  background-color: #444;
+}
+
+.dark button:hover {
+  background-color: #666;
+}
+
+.dark a {
+  color: #1e90ff;
+}

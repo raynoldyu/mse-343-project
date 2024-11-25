@@ -1,0 +1,113 @@
+/* Dashboard.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('https://images.unsplash.com/photo-1568306073-5e61eb562a2d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFza2V0YmFsbCUyMGNvdXJ0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80')
+    no-repeat center center fixed;
+  background-size: cover; /* Ensures the image covers the entire background */
+}
+
+.dashboard-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.9); /* Add a white background with transparency for better readability */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+h1 {
+  color: #f45c43;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.games-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.games-table th,
+.games-table td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+.games-table th {
+  background-color: #f45c43;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.games-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.games-table tbody tr:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background-color: #ffe0b2; /* Light basketball orange */
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .games-table th,
+  .games-table td {
+    font-size: 0.9rem;
+  }
+
+  .team-logo {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logout-button {
+  background-color: #f45c43;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #d94a3a;
+}
+
