@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleLogin = () => {
     if (credentials.username === 'coach' && credentials.password === 'password') {
-      navigate('/dashboard');
+      navigate('/home');
     } else {
       alert('Invalid credentials!');
     }
