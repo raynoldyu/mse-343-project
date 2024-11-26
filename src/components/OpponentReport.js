@@ -102,12 +102,14 @@ const OpponentReport = () => {
   };
 
   return (
+
+
     <div className="opponent-report">
       <h1>Opponent Report for Game {id}</h1>
 
       {/* Back Button */}
       <button className="back-button" onClick={() => navigate(-1)}>
-        ← Back
+        ← Go Back
       </button>
 
       {/* Table Section */}

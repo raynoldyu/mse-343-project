@@ -281,17 +281,36 @@ const Dashboard = () => {
                 >
                   Playbooks
                 </li>
+
               </ul>
             </nav>
           </div>
-        </div>
-      <div className="dashboard-container">
-      <div className="header">
-        <BackButton />
-        <button className="logout-button" onClick={handleLogout}>
+
+                  {/* Logout Button */}
+        <div>
+        <button
+          style={{
+            padding: '10px 20px', // Adjust padding for even spacing
+            cursor: 'pointer',
+            borderRadius: '4px',
+            backgroundColor: '#ff4d4d',
+            color: '#fff',
+            border: 'none',
+            fontSize: '14px', // Ensure consistent font size
+            fontWeight: 'bold',
+            lineHeight: '1.2', // Adjust line height to center text
+            display: 'flex', // Use flexbox for perfect centering
+            alignItems: 'center', // Center vertically
+            justifyContent: 'center', // Center horizontally
+          }}
+          onClick={handleLogout}
+        >
           Logout
         </button>
-      </div>
+        </div>
+        </div>
+      <div className="dashboard-container">
+ 
       <h1>Upcoming Games</h1>
       <p>Prepare for the next matchups with detailed insights and strategies.</p>
       <table className="games-table">
@@ -313,7 +332,13 @@ const Dashboard = () => {
               <td>
                 <img src={game.logo} alt={`${game.opponent} logo`} className="team-logo" />
               </td>
-              <td onClick={() => handleRowClick(game.id)}>{game.opponent}</td>
+              <td
+                className="hyperlink" // Add hyperlink styling
+                onClick={() => handleRowClick(game.id)}
+                title={`View details for ${game.opponent}`} // Optional tooltip
+              >
+                {game.opponent}
+              </td>
               <td onClick={() => handleRowClick(game.id)}>{game.date}</td>
               <td onClick={() => handleRowClick(game.id)}>{game.time}</td>
               <td onClick={() => handleRowClick(game.id)}>{game.location}</td>

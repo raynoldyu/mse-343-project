@@ -9,14 +9,17 @@ const Landing = () => {
     { name: 'Losses', value: 8 },
   ];
 
+  const COLORS = ['#4CAF50', '#F44336'];
   const navigate = useNavigate();
+
   const nav = () => {
     navigate('/dashboard');
   };
-  // Color scheme for the pie chart
-  const COLORS = ['#4CAF50', '#F44336'];
 
-  // Player list data
+  const handleLogout = () => {
+    navigate('/'); // Navigate back to the login page
+  };
+
   const players = [
     { id: 1, name: 'Michael Johnson', position: 'Point Guard', number: 12, stats: '18.5 PPG' },
     { id: 2, name: 'Carlos Rodriguez', position: 'Shooting Guard', number: 23, stats: '16.2 PPG' },
@@ -27,65 +30,95 @@ const Landing = () => {
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-  {/* Navbar */}
-  <div style={{ background: '#333', color: '#fff', padding: '8px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      {/* Title */}
-      <h1 style={{ margin: 0, marginRight: '32px', color: '#fff', fontSize: '1.5rem' }}>Sport Analytics</h1>
-      <nav>
-        <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'inline-flex' }}>
-          <li
-            style={{
-              marginRight: '16px',
-              padding: '8px 16px',
-              cursor: 'pointer',
-              backgroundColor: '#555',
-              borderRadius: '4px',
-              color: '#fff',
-              fontWeight: 'bold',
-            }}
-          >
-            MyTeam
-          </li>
-          <li
-              style={{
-                marginRight: '16px',
-                padding: '8px 16px',
-                cursor: 'pointer',
-                borderRadius: '4px',
-                color: '#fff',
-              }}
-              onClick={nav}
-            >
-              Schedule
-            </li>
-          <li
-            style={{
-              marginRight: '16px',
-              padding: '8px 16px',
-              cursor: 'pointer',
-              borderRadius: '4px',
-              color: '#fff',
-            }}
-          >
-            Opponent
-          </li>
-          <li
-            style={{
-              padding: '8px 16px',
-              cursor: 'pointer',
-              borderRadius: '4px',
-              color: '#fff',
-            }}
-          >
-            Playbooks
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+      {/* Navbar */}
+      <div
+        style={{
+          background: '#333',
+          color: '#fff',
+          padding: '8px 16px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        {/* Left Section: Title and Navigation Links */}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <h1 style={{ margin: 0, marginRight: '32px', color: '#fff', fontSize: '1.5rem' }}>Sport Analytics</h1>
+          <nav>
+            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex' }}>
+              <li
+                style={{
+                  marginRight: '16px',
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  backgroundColor: '#555',
+                  borderRadius: '4px',
+                  color: '#fff',
+                  fontWeight: 'bold',
+                }}
+              >
+                MyTeam
+              </li>
+              <li
+                style={{
+                  marginRight: '16px',
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                  color: '#fff',
+                }}
+                onClick={nav}
+              >
+                Schedule
+              </li>
+              <li
+                style={{
+                  marginRight: '16px',
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                  color: '#fff',
+                }}
+              >
+                Opponent
+              </li>
+              <li
+                style={{
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                  color: '#fff',
+                }}
+              >
+                Playbooks
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-
+        {/* Logout Button */}
+        <div>
+        <button
+          style={{
+            padding: '10px 20px', // Adjust padding for even spacing
+            cursor: 'pointer',
+            borderRadius: '4px',
+            backgroundColor: '#ff4d4d',
+            color: '#fff',
+            border: 'none',
+            fontSize: '14px', // Ensure consistent font size
+            fontWeight: 'bold',
+            lineHeight: '1.2', // Adjust line height to center text
+            display: 'flex', // Use flexbox for perfect centering
+            alignItems: 'center', // Center vertically
+            justifyContent: 'center', // Center horizontally
+          }}
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+        </div>
+      </div>
 
       {/* Team Info */}
       <div
@@ -99,13 +132,9 @@ const Landing = () => {
           WATERLOO WARRIORS
         </h2>
         <div style={{ marginLeft: '0' }}>
-          <p style={{ margin: 0, fontSize: '1.2rem', textAlign: 'left' }}>
-            Win-Loss: 22 - 8
-          </p>
+          <p style={{ margin: 0, fontSize: '1.2rem', textAlign: 'left' }}>Win-Loss: 22 - 8</p>
         </div>
       </div>
-
-
 
       {/* Sub-navbar */}
       <div style={{ background: '#ddd', padding: '8px 16px', textAlign: 'left' }}>
@@ -124,7 +153,6 @@ const Landing = () => {
             >
               Analytics
             </li>
-  
             <li
               style={{
                 padding: '8px 16px',

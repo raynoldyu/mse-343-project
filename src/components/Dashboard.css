@@ -111,3 +111,19 @@ p {
   background-color: #d94a3a;
 }
 
+.icon-button {
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  padding: 0; /* Remove padding */
+  cursor: pointer; /* Pointer cursor for clickable icon */
+  font-size: 1.5rem; /* Adjust font size for the icon */
+  display: inline-flex; /* Ensure proper alignment */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  color: #007bff; /* Set a color for the icon */
+  transition: color 0.3s ease; /* Add hover effect */
+}
+
+.icon-button:hover {
+  color: #0056b3; /* Change color on hover */
+}

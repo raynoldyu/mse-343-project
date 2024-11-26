@@ -46,3 +46,15 @@ button:hover {
 .home-button:hover {
   background-color: #0056b3;
 }
+
+.hyperlink {
+  color: #007bff; /* Blue color to mimic hyperlinks */
+  text-decoration: underline; /* Add underline to mimic a link */
+  cursor: pointer; /* Change cursor to pointer for clickability */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.hyperlink:hover {
+  color: #0056b3; /* Slightly darker blue on hover */
+  text-decoration: none; /* Optional: remove underline on hover for a cleaner effect */
+}
