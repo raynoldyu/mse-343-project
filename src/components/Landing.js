@@ -197,7 +197,7 @@ const Landing = () => {
             </thead>
             <tbody>
               {players.map((player) => (
-                <tr key={player.id} style={{ textAlign: 'left', borderBottom: '1px solid #eee' }}>
+                <tr key={player.id} style={{ textAlign: 'center', borderBottom: '1px solid #eee' }}>
                   <td style={{ padding: '8px' }}>{player.number}</td>
                   <td style={{ padding: '8px' }}>{player.name}</td>
                   <td style={{ padding: '8px' }}>{player.position}</td>
