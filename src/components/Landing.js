@@ -48,6 +48,18 @@ const Landing = () => {
             MyTeam
           </li>
           <li
+              style={{
+                marginRight: '16px',
+                padding: '8px 16px',
+                cursor: 'pointer',
+                borderRadius: '4px',
+                color: '#fff',
+              }}
+              onClick={nav}
+            >
+              Schedule
+            </li>
+          <li
             style={{
               marginRight: '16px',
               padding: '8px 16px',
@@ -112,18 +124,7 @@ const Landing = () => {
             >
               Analytics
             </li>
-            <li
-              style={{
-                marginRight: '16px',
-                padding: '8px 16px',
-                cursor: 'pointer',
-                borderRadius: '4px',
-                color: '#333',
-              }}
-              onClick={nav}
-            >
-              Schedule
-            </li>
+  
             <li
               style={{
                 padding: '8px 16px',

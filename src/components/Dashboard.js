@@ -188,7 +188,10 @@ const Dashboard = () => {
       logo: 'https://via.placeholder.com/40?text=V',
     },
   ]);
-  
+
+  const hanldeNav = () => {
+    navigate('/dashboard');
+  };
   
 
   // Function to handle editing notes
@@ -217,9 +220,72 @@ const Dashboard = () => {
   const handleLogout = () => {
     navigate('/'); // Navigate back to the login page
   };
+  const handleHome = () => {
+    navigate('/Home'); // Navigate back to the login page
+  };
+
 
   return (
-    <div className="dashboard-container">
+    <div >
+      {/* Navbar */}
+      <div style={{ background: '#333', color: '#fff', padding: '8px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            {/* Title */}
+            <h1 style={{ margin: 0, marginRight: '32px', color: '#fff', fontSize: '1.5rem' }}>Sport Analytics</h1>
+            <nav>
+              <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'inline-flex' }}>
+                <li
+                  style={{
+                    marginRight: '16px',
+                    padding: '8px 16px',
+                    cursor: 'pointer',
+                    borderRadius: '4px',
+                    color: '#fff',
+                  }}
+                  onClick={handleHome}
+                >
+                  MyTeam
+                </li>
+                <li
+                    style={{
+                      marginRight: '16px',
+                      padding: '8px 16px',
+                      cursor: 'pointer',
+                      backgroundColor: '#555',
+                      borderRadius: '4px',
+                      color: '#fff',
+                      fontWeight: 'bold',
+                    }}
+                    onClick={hanldeNav}
+                  >
+                    Schedule
+                  </li>
+                <li
+                  style={{
+                    marginRight: '16px',
+                    padding: '8px 16px',
+                    cursor: 'pointer',
+                    borderRadius: '4px',
+                    color: '#fff',
+                  }}
+                >
+                  Opponent
+                </li>
+                <li
+                  style={{
+                    padding: '8px 16px',
+                    cursor: 'pointer',
+                    borderRadius: '4px',
+                    color: '#fff',
+                  }}
+                >
+                  Playbooks
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      <div className="dashboard-container">
       <div className="header">
         <BackButton />
         <button className="logout-button" onClick={handleLogout}>
@@ -274,6 +340,7 @@ const Dashboard = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };
