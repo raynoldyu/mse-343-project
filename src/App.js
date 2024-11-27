@@ -5,6 +5,8 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import OpponentReport from './components/OpponentReport';
 import Landing from './components/Landing';
+import Verify from './components/Verify';
+
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/opponent/:id" element={<OpponentReport />} />
         <Route path="/home" element={<Landing />} />
+        <Route path="/verify" element={<Verify />} />
+
       </Routes>
     </Router>
   );

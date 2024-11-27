@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleLogin = () => {
     if (credentials.username === 'coach' && credentials.password === 'password') {
-      navigate('/home');
+      navigate('/verify');
     } else {
       alert('Invalid credentials!');
     }
@@ -38,7 +38,10 @@ const Login = () => {
         />
         <button onClick={handleLogin}>Login</button>
         <div className="login-footer">
-          <p>Need help? <a href="#">Contact Support</a></p>
+          <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+        <div className="login-footer">
+          <p><a href="#">Forgot password</a></p>
         </div>
         <div className="dark-mode-toggle">
           <label>

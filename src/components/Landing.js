@@ -161,6 +161,16 @@ const Landing = () => {
                 color: '#333',
               }}
             >
+              Schedule
+            </li>
+            <li
+              style={{
+                padding: '8px 16px',
+                cursor: 'pointer',
+                borderRadius: '4px',
+                color: '#333',
+              }}
+            >
               Training
             </li>
           </ul>
