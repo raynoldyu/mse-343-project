@@ -127,3 +127,67 @@ p {
 .icon-button:hover {
   color: #0056b3; /* Change color on hover */
 }
+
+
+.react-calendar {
+  width: 100%; /* Ensure the calendar fits its container */
+  max-width: 600px; /* Limit the calendar size */
+  margin: auto;
+  border: none; /* Remove the border for cleaner look */
+  font-family: Arial, sans-serif;
+}
+
+.react-calendar__tile {
+  padding: 10px; /* Add padding to the calendar tiles */
+  text-align: center; /* Center the tile content */
+}
+
+.react-calendar__tile--active {
+  background-color: #007bff; /* Highlight selected date */
+  color: white;
+}
+
+.react-calendar__tile--active:hover {
+  background-color: #0056b3; /* Darker highlight on hover */
+}
+
+.react-calendar__tile:hover {
+  background-color: #f0f8ff; /* Light hover effect for all tiles */
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: red; /* Highlight weekends in red */
+}
+
+.react-calendar__tile span {
+  font-size: 1rem; /* Adjust the size of the ⚽ icon */
+  display: block; /* Ensure icons appear centered below dates */
+  margin-top: 5px;
+}
+
+.react-calendar__tile {
+  color: #000; /* Set the text color to black */
+  font-size: 1rem; /* Ensure a readable font size */
+}
+
+.react-calendar__navigation button {
+  color: #000; /* Black text for navigation buttons (month, year) */
+  font-size: 1rem; /* Match font size */
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #000 !important; /* Ensure weekends also have black text */
+}
+
+.react-calendar__tile--active {
+  background-color: #007bff; /* Highlight active date with blue background */
+  color: #fff; /* Keep active date text white */
+}
+
+.react-calendar__tile--active:hover {
+  background-color: #0056b3; /* Darker highlight for active date on hover */
+}
+
+.react-calendar__tile:hover {
+  background-color: #f0f8ff; /* Subtle background change on hover */
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Calendar from 'react-calendar'; // Import React Calendar
+import 'react-calendar/dist/Calendar.css'; // Import calendar styles
 import BackButton from './BackButton';
 import './Dashboard.css';
 
@@ -189,12 +191,10 @@ const Dashboard = () => {
     },
   ]);
 
-  const hanldeNav = () => {
-    navigate('/dashboard');
+  const handleRowClick = (id) => {
+    navigate(`/opponent/${id}`);
   };
-  
 
-  // Function to handle editing notes
   const handleEditClick = (id) => {
     const newNotes = prompt('Enter new notes:');
     if (newNotes !== null) {
@@ -206,166 +206,231 @@ const Dashboard = () => {
     }
   };
 
-  // Function to handle row removal
   const handleRemoveClick = (id) => {
     setGames((prevGames) => prevGames.filter((game) => game.id !== id));
   };
 
-  // Function to handle row click
-  const handleRowClick = (id) => {
-    navigate(`/opponent/${id}`);
-  };
-
-  // Function to handle logout
   const handleLogout = () => {
-    navigate('/'); // Navigate back to the login page
-  };
-  const handleHome = () => {
-    navigate('/Home'); // Navigate back to the login page
+    navigate('/'); // Navigate to login
   };
 
+  const handleHome = () => {
+    navigate('/Home'); // Navigate to home
+  };
+
+  const handleDateClick = (date) => {
+    // Find games on the clicked date
+    const matchingGames = games.filter(
+      (game) => new Date(game.date).toDateString() === date.toDateString()
+    );
+
+    if (matchingGames.length > 0) {
+      alert(
+        `Games on ${date.toDateString()}:\n` +
+          matchingGames
+            .map(
+              (game) =>
+                `${game.opponent} at ${game.time}, Location: ${game.location}`
+            )
+            .join('\n')
+      );
+    } else {
+      alert(`No games scheduled on ${date.toDateString()}`);
+    }
+  };
 
   return (
-    <div >
+    <div>
       {/* Navbar */}
-      <div style={{ background: '#333', color: '#fff', padding: '8px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            {/* Title */}
-            <h1 style={{ margin: 0, marginRight: '32px', color: '#fff', fontSize: '1.5rem' }}>Sport Analytics</h1>
-            <nav>
-              <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'inline-flex' }}>
-                <li
-                  style={{
-                    marginRight: '16px',
-                    padding: '8px 16px',
-                    cursor: 'pointer',
-                    borderRadius: '4px',
-                    color: '#fff',
-                  }}
-                  onClick={handleHome}
-                >
-                  MyTeam
-                </li>
-                <li
-                    style={{
-                      marginRight: '16px',
-                      padding: '8px 16px',
-                      cursor: 'pointer',
-                      backgroundColor: '#555',
-                      borderRadius: '4px',
-                      color: '#fff',
-                      fontWeight: 'bold',
-                    }}
-                    onClick={hanldeNav}
-                  >
-                    Schedule
-                  </li>
-                <li
-                  style={{
-                    marginRight: '16px',
-                    padding: '8px 16px',
-                    cursor: 'pointer',
-                    borderRadius: '4px',
-                    color: '#fff',
-                  }}
-                >
-                  Opponent
-                </li>
-                <li
-                  style={{
-                    padding: '8px 16px',
-                    cursor: 'pointer',
-                    borderRadius: '4px',
-                    color: '#fff',
-                  }}
-                >
-                  Playbooks
-                </li>
-
-              </ul>
-            </nav>
-          </div>
-
-                  {/* Logout Button */}
-        <div>
-        <button
-          style={{
-            padding: '10px 20px', // Adjust padding for even spacing
-            cursor: 'pointer',
-            borderRadius: '4px',
-            backgroundColor: '#ff4d4d',
-            color: '#fff',
-            border: 'none',
-            fontSize: '14px', // Ensure consistent font size
-            fontWeight: 'bold',
-            lineHeight: '1.2', // Adjust line height to center text
-            display: 'flex', // Use flexbox for perfect centering
-            alignItems: 'center', // Center vertically
-            justifyContent: 'center', // Center horizontally
-          }}
-          onClick={handleLogout}
-        >
-          Logout
-        </button>
-        </div>
-        </div>
-      <div className="dashboard-container">
- 
-      <h1>Upcoming Games</h1>
-      <p>Prepare for the next matchups with detailed insights and strategies.</p>
-      <table className="games-table">
-        <thead>
-          <tr>
-            <th>Logo</th>
-            <th>Opponent</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Location</th>
-            <th>Coach Notes</th>
-            <th>Edit</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {games.map((game) => (
-            <tr key={game.id} className="clickable-row">
-              <td>
-                <img src={game.logo} alt={`${game.opponent} logo`} className="team-logo" />
-              </td>
-              <td
-                className="hyperlink" // Add hyperlink styling
-                onClick={() => handleRowClick(game.id)}
-                title={`View details for ${game.opponent}`} // Optional tooltip
+      <div
+        style={{
+          background: '#333',
+          color: '#fff',
+          padding: '8px 16px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <h1
+            style={{
+              margin: 0,
+              marginRight: '32px',
+              color: '#fff',
+              fontSize: '1.5rem',
+            }}
+          >
+            Sport Analytics
+          </h1>
+          <nav>
+            <ul
+              style={{
+                listStyle: 'none',
+                margin: 0,
+                padding: 0,
+                display: 'inline-flex',
+              }}
+            >
+              <li
+                style={{
+                  marginRight: '16px',
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                  color: '#fff',
+                }}
+                onClick={handleHome}
               >
-                {game.opponent}
-              </td>
-              <td onClick={() => handleRowClick(game.id)}>{game.date}</td>
-              <td onClick={() => handleRowClick(game.id)}>{game.time}</td>
-              <td onClick={() => handleRowClick(game.id)}>{game.location}</td>
-              <td>{game.notes}</td>
-              <td>
-                <button
-                  className="icon-button"
-                  onClick={() => handleEditClick(game.id)}
-                  title="Edit Notes"
-                >
-                  🖉
-                </button>
-              </td>
-              <td>
-                <button
-                  className="icon-button"
-                  onClick={() => handleRemoveClick(game.id)}
-                  title="Remove Row"
-                >
-                  ✔
-                </button>
-              </td>
+                MyTeam
+              </li>
+              <li
+                style={{
+                  marginRight: '16px',
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  backgroundColor: '#555',
+                  borderRadius: '4px',
+                  color: '#fff',
+                  fontWeight: 'bold',
+                }}
+              >
+                Schedule
+              </li>
+              <li
+                style={{
+                  marginRight: '16px',
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                  color: '#fff',
+                }}
+              >
+                Opponent
+              </li>
+              <li
+                style={{
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                  color: '#fff',
+                }}
+              >
+                Playbooks
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div>
+          <button
+            style={{
+              padding: '10px 20px',
+              cursor: 'pointer',
+              borderRadius: '4px',
+              backgroundColor: '#ff4d4d',
+              color: '#fff',
+              border: 'none',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              lineHeight: '1.2',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <div className="dashboard-container">
+        <h1>Upcoming Games</h1>
+        <p>Prepare for the next matchups with detailed insights and strategies.</p>
+
+        {/* Calendar View */}
+        <div style={{ marginBottom: '24px' }}>
+          <h2>Calendar View</h2>
+          <Calendar
+            onClickDay={handleDateClick}
+            tileContent={({ date, view }) => {
+              // Ensure content is only added for "month" view (individual days)
+              if (view === 'month') {
+                const hasGame = games.some(
+                  (game) => new Date(game.date).toDateString() === date.toDateString()
+                );
+                return hasGame ? (
+                  <div style={{ textAlign: 'center', marginTop: '5px' }}>
+                    <span role="img" aria-label="game" style={{ color: 'blue' }}>
+                      ⚽
+                    </span>
+                  </div>
+                ) : null;
+              }
+              return null;
+            }}
+          />
+        </div>
+
+
+        {/* Table View */}
+        <table className="games-table">
+          <thead>
+            <tr>
+              <th>Logo</th>
+              <th>Opponent</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Coach Notes</th>
+              <th>Edit</th>
+              <th>Remove</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {games.map((game) => (
+              <tr key={game.id} className="clickable-row">
+                <td>
+                  <img
+                    src={game.logo}
+                    alt={`${game.opponent} logo`}
+                    className="team-logo"
+                  />
+                </td>
+                <td
+                  className="hyperlink"
+                  onClick={() => handleRowClick(game.id)}
+                  title={`View details for ${game.opponent}`}
+                >
+                  {game.opponent}
+                </td>
+                <td>{game.date}</td>
+                <td>{game.time}</td>
+                <td>{game.location}</td>
+                <td>{game.notes}</td>
+                <td>
+                  <button
+                    className="icon-button"
+                    onClick={() => handleEditClick(game.id)}
+                    title="Edit Notes"
+                  >
+                    🖉
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="icon-button"
+                    onClick={() => handleRemoveClick(game.id)}
+                    title="Remove Row"
+                  >
+                    ✔
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
